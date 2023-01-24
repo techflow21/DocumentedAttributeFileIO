@@ -1,0 +1,39 @@
+	 Target Class Name: Trainee
+	 ==========================
+	 Description: This class represents a trainee in a training program. 
+	 Input: Name, Age, Level 
+	 Output: Name, Age, Level
+
+	 Method Name: GetName
+	 ========================
+	 Description: This method gets a trainee name in a training program. 
+	 Input:  
+	 Output: Intermediate level trained Trainee
+
+	 Properties of Trainee class:
+	 ============================
+	 Property Name: Name 
+	 Description: This is the name property of the trainee 
+	 Input:  
+	 Output: 
+
+	 Property Name: Age 
+	 Description: This is the age property of the trainee 
+	 Input:  
+	 Output: 
+
+	 Property Name: Level 
+	 Description: The level of the trainee in the training program 
+	 Input:  
+	 Output: 
+
+	 Values of LevelEnum:
+	 =====================
+	 Description: Beginner level 
+	 Value: Beginner
+
+	 Description: Intermediate level 
+	 Value: Intermediate
+
+	 Description: Expert level 
+	 Value: Expert

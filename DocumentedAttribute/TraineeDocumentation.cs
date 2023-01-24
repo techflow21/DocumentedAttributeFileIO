@@ -7,8 +7,23 @@ namespace DocumentedAttribute
         {
             var output = "";
 
+            output += GetClass();
+
+            output += GetMethods();
+
+            output += GetProperties();
+
+            output += GetEnum();
+
+            return output;
+        }
+
+        internal string GetClass()
+        {
+            var classOutput = "";
+
             Type type = typeof(Trainee);
-            output += $"\n\t Target Class Name: {type.Name}\n\t ==========================\n";
+            classOutput += $"\t Target Class Name: {type.Name}\n\t ==========================\n";
 
             var attributes = type.GetCustomAttributes(true);
 
@@ -17,12 +32,20 @@ namespace DocumentedAttribute
                 if (attribute is DocumentAttribute)
                 {
                     var doc = attribute as DocumentAttribute;
-                    output += $"\t Description: {doc.Description} \n\t Input: {doc.Input} \n\t Output: {doc.Output}\n";
+                    classOutput += $"\t Description: {doc.Description} \n\t Input: {doc.Input} \n\t Output: {doc.Output}\n";
                 }
             }
+            return classOutput;
+        }
 
 
-            output += "\n\t Methods of Trainee class:\n\t =========================\n";
+        internal string GetMethods()
+        {
+            var methodsOutput = "";
+
+            Type type = typeof(Trainee);
+
+            Console.WriteLine("\n\t Methods of Trainee class:\n\t =========================");
             var methods = type.GetMethods();
 
             foreach (var method in methods)
@@ -33,13 +56,21 @@ namespace DocumentedAttribute
                     if (attribute is DocumentAttribute)
                     {
                         var doc = attribute as DocumentAttribute;
-                        output += $"\t Method Name: {method.Name} \n\t Description: {doc.Description} \n\t Input: {doc.Input} \n\t Output: {doc.Output}\n";
+                        methodsOutput += $"\n\t Method Name: {method.Name}\n\t ========================\n\t Description: {doc.Description} \n\t Input: {doc.Input} \n\t Output: {doc.Output}\n";
                     }
                 }
             }
 
+            return methodsOutput;
+        }
 
-            output += "\n\t Properties of Trainee class:\n\t ============================\n";
+
+        internal string GetProperties()
+        {
+            var propertiesOutput = "";
+
+            Type type = typeof(Trainee);
+            propertiesOutput += "\n\t Properties of Trainee class:\n\t ============================";
             var properties = type.GetProperties();
 
             foreach (var property in properties)
@@ -50,16 +81,21 @@ namespace DocumentedAttribute
                     if (attribute is DocumentAttribute)
                     {
                         var doc = attribute as DocumentAttribute;
-                        output += $"\t Property Name: {property.Name} \n\t Description: {doc.Description} \n\t Input: {doc.Input} \n\t Output: {doc.Output}\n\n";
+                        propertiesOutput += $"\n\t Property Name: {property.Name} \n\t Description: {doc.Description} \n\t Input: {doc.Input} \n\t Output: {doc.Output}\n";
                     }
                 }
             }
+            return propertiesOutput;
+        }
 
 
+        internal string GetEnum()
+        {
+            var enumOutput = "";
             Type enumType = typeof(Level);
             var enumValues = enumType.GetEnumValues();
 
-            output += "\n\t Values of LevelEnum:\n\t ====================\n";
+            enumOutput += "\n\t Values of LevelEnum:\n\t =====================";
             foreach (var value in enumValues)
             {
                 var valueAttributes = enumType.GetField(value.ToString()).GetCustomAttributes(true);
@@ -69,11 +105,12 @@ namespace DocumentedAttribute
                     if (attribute is DocumentAttribute)
                     {
                         var doc = attribute as DocumentAttribute;
-                        output += $"\t Description: {doc.Description} \n\t Value: {value}\n\n";
+                        enumOutput += $"\n\t Description: {doc.Description} \n\t Value: {value}\n";
                     }
                 }
             }
-            return output;
+            return enumOutput;
         }
+
     }
 }

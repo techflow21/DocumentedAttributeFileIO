@@ -84,8 +84,8 @@ namespace DocumentedAttribute
 
             try
             {
-                var Renderer = new ChromePdfRenderer();
-                var pdf = Renderer.RenderHtmlAsPdf(docs);
+                var pdfRenderer = new ChromePdfRenderer();
+                var pdf = pdfRenderer.RenderHtmlAsPdf(docs);
                 pdf.SaveAs("traineePDF.pdf");
 
                 Console.WriteLine("\n\t PDF file created successfully!");
