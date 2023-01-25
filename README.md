@@ -7,8 +7,8 @@ This is a Documentation Tool with a Custom Attribute and File I/O implementation
 - WriteToJson
 - ReadFromJson
 - WriteToPdf
-- WriteToXml
-- ReadFromXml
+- WriteToXml (to be included later)
+- ReadFromXml (to be included later)
 
 # Benefits
 
