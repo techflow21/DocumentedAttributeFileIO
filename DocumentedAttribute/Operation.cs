@@ -1,5 +1,4 @@
-﻿using IronPdf;
-using System.Text.Json;
+﻿using System.Text.Json;
 
 namespace DocumentedAttribute
 {
@@ -7,9 +6,9 @@ namespace DocumentedAttribute
     {
         public static void WriteToTxt()
         {
-            TraineeDocumentation documentation = new();
+            WriteToText documentation = new();
             var docs = documentation.GetDocs();
-    
+
             try
             {
                 File.WriteAllText("traineeTxt.txt", docs);
@@ -36,11 +35,8 @@ namespace DocumentedAttribute
             }
         }
 
-        public static void WriteToJson()
+        public static void WriteToJson(object obj, string fileName)
         {
-            TraineeDocumentation documentation = new();
-            var docs = documentation.GetDocs();
-
             try
             {
                 var options = new JsonSerializerOptions
@@ -49,8 +45,9 @@ namespace DocumentedAttribute
                     WriteIndented = true
                 };
 
-                string jsonText = JsonSerializer.Serialize(docs, options);
-                File.WriteAllText("traineeJson.json", jsonText);
+                string jsonText = JsonSerializer.Serialize(obj, options);
+
+                File.WriteAllText(fileName, jsonText);
 
                 Console.WriteLine("\n\t JSON file created successfully!");
             }
@@ -65,34 +62,20 @@ namespace DocumentedAttribute
         {
             try
             {
+                if (!File.Exists("traineeJson.json"))
+                {
+                    Console.WriteLine("\n\t You need to write to JSON File, before reading as JSON file does not exists!\n");
+                }
+
                 string json = File.ReadAllText("traineeJson.json");
 
-                var docs = JsonSerializer.Deserialize<string>(json);
-                Console.WriteLine(docs);
+                var jsonData = JsonSerializer.Deserialize<dynamic>(json);
+                Console.WriteLine(jsonData);
 
             }
             catch (Exception e)
             {
                 Console.WriteLine("\n\t An error occurred while reading from the JSON file: " + e.Message);
-            }
-        }
-
-        public static void WriteToPdf()
-        {
-            TraineeDocumentation documentation = new();
-            var docs = documentation.GetDocs();
-
-            try
-            {
-                var pdfRenderer = new ChromePdfRenderer();
-                var pdf = pdfRenderer.RenderHtmlAsPdf(docs);
-                pdf.SaveAs("traineePDF.pdf");
-
-                Console.WriteLine("\n\t PDF file created successfully!");
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("\n\t An error occurred while writing to the PDF file: " + e.Message);
             }
         }
     }

@@ -7,9 +7,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="ironpdf" Version="2023.1.11416" />
-    <PackageReference Include="itext7" Version="7.2.5" />
-  </ItemGroup>
-
 </Project>

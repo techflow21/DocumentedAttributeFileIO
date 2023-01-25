@@ -14,6 +14,14 @@ namespace DocumentedAttribute
         public string Level { get; set; }
 
 
+        [Document("This a constructor of the trainee object", Input = "Name, Level", Output = "")]
+        public Trainee(string name, string level)
+        {
+            Name = name;
+            Level = level;
+        }
+
+
         [Document("This method gets a trainee name in a training program.", Input = "", Output = "Intermediate level trained Trainee")]
         public void GetName()
         {

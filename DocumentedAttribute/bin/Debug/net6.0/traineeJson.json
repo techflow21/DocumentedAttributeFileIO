@@ -1,1 +1,60 @@
-"\t Target Class Name: Trainee\n\t ==========================\n\t Description: This class represents a trainee in a training program. \n\t Input: Name, Age, Level \n\t Output: Name, Age, Level\n\n\t Method Name: GetName\n\t ========================\n\t Description: This method gets a trainee name in a training program. \n\t Input:  \n\t Output: Intermediate level trained Trainee\n\n\t Properties of Trainee class:\n\t ============================\n\t Property Name: Name \n\t Description: This is the name property of the trainee \n\t Input:  \n\t Output: \n\n\t Property Name: Age \n\t Description: This is the age property of the trainee \n\t Input:  \n\t Output: \n\n\t Property Name: Level \n\t Description: The level of the trainee in the training program \n\t Input:  \n\t Output: \n\n\t Values of LevelEnum:\n\t =====================\n\t Description: Beginner level \n\t Value: Beginner\n\n\t Description: Intermediate level \n\t Value: Intermediate\n\n\t Description: Expert level \n\t Value: Expert\n"
+[
+  {
+    "Name": "Trainee",
+    "Description": "This class represents a trainee in a training program.",
+    "Constructors": {
+      "Name": ".ctor",
+      "Description": "This a constructor of the trainee object",
+      "Input": null,
+      "Output": null
+    },
+    "Properties": [
+      {
+        "Name": "Name",
+        "Description": "This is the name property of the trainee",
+        "Input": null,
+        "Output": null
+      },
+      {
+        "Name": "Age",
+        "Description": "This is the age property of the trainee",
+        "Input": null,
+        "Output": null
+      },
+      {
+        "Name": "Level",
+        "Description": "The level of the trainee in the training program",
+        "Input": null,
+        "Output": null
+      }
+    ],
+    "Methods": [
+      {
+        "Name": "GetName",
+        "Description": "This method gets a trainee name in a training program.",
+        "Input": "",
+        "Output": "Intermediate level trained Trainee"
+      }
+    ],
+    "Enums": [
+      {
+        "Name": "Level",
+        "Description": "Beginner level",
+        "Input": "",
+        "Output": ""
+      },
+      {
+        "Name": "Level",
+        "Description": "Intermediate level",
+        "Input": "",
+        "Output": ""
+      },
+      {
+        "Name": "Level",
+        "Description": "Expert level",
+        "Input": "",
+        "Output": ""
+      }
+    ]
+  }
+]

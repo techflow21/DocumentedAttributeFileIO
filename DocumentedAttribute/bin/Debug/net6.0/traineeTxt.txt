@@ -4,7 +4,9 @@
 	 Input: Name, Age, Level 
 	 Output: Name, Age, Level
 
-	 Method Name: GetName
+	 Methods of Trainee class:
+	 =========================
+	 Method Name: GetName 
 	 ========================
 	 Description: This method gets a trainee name in a training program. 
 	 Input:  
